@@ -1,8 +1,1 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="d1">
-<g id="Group 458">
-<rect id="back__COLOR:special-10" width="24" height="24" rx="12" fill="#F9F9F9"/>
-</g>
-<path id="icon__COLOR:icon-main" fill-rule="evenodd" clip-rule="evenodd" d="M12.001 13.0605L14.6525 15.7121L15.7132 14.6514L13.0616 11.9999L15.7131 9.34844L14.6524 8.28778L12.001 10.9392L9.34923 8.28748L8.28857 9.34814L10.9403 11.9999L8.28846 14.6517L9.34912 15.7124L12.001 13.0605Z" fill="black"/>
-</g>
-</svg>
+<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="12" fill="#F9F9F9"/><path fill-rule="evenodd" clip-rule="evenodd" d="m12.001 13.06 2.652 2.652 1.06-1.06L13.062 12l2.651-2.652-1.06-1.06L12 10.939 9.349 8.287 8.29 9.348 10.94 12l-2.652 2.652 1.061 1.06 2.652-2.652z" fill="#000"/></svg>
