@@ -1,0 +1,34 @@
+.savedMovies {
+    max-width: 1280px;
+    margin: 0 auto;
+    font-family: "Inter", Helvetica, sans-serif;
+    color:black;
+    display: flex;
+    flex-direction: column;
+}
+
+.savedMovies__divider {
+    border-top: 1px solid #E8E8E8;
+    margin: 67px 0 80px;
+}
+
+@media screen and (max-width:800px) {
+    .savedMovies__divider {
+        margin: 109px 0 80px;
+    }
+
+    .savedMovies__button {
+        margin: 50px auto 82px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .savedMovies__divider {
+        margin: 109px 0 50px;
+    }
+
+    .savedMovies__button {
+        width: 240px;
+        margin-bottom: 85px;
+    }
+}

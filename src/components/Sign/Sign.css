@@ -1,0 +1,148 @@
+.sign {
+    width: 396px;
+    margin: 70px auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sign__heading {
+    margin: 37px 0 42px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    cursor: default;
+}
+
+.sign__form {
+    width: 100%;
+    height: 377px;
+    margin: 0  0 15px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sign__fieldset {
+    width: 100%;
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 9px;
+}
+
+.sign__label {
+    color: #A0A0A0;
+    font-size: 10px;
+}
+
+.sign__input {
+    border-radius: 8px;
+    background: #F9F9F9;
+    height: 46px;
+    border: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    color: #000000;
+    padding-left: 15px;
+    margin: 0;
+}
+
+.sign__input:focus {
+    outline: none;
+    border-bottom: 1px solid #3456F3;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.sign__input:invalid {
+    color: #FF3055;
+}
+
+
+.sign__button {
+    width: 100%;
+    height: 45px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.sign__button:hover {
+    opacity: .7;
+}
+
+.sign__question{
+    color: #A0A0A0;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: default;
+    align-self: center;
+}
+
+.sign__link{
+    margin: 0 0 0 5px;
+    padding: 0;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.sign__link:hover {
+    opacity: .7;
+}
+
+.sign__error {
+    color: #FF3055;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .sign {
+        margin: 232px auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sign {
+        width: 260px;
+        margin: 56px auto 30px;
+        align-items: center;
+    }
+
+    .sign__heading {
+        margin: 47px 0 80px;
+    }
+
+    .sign__form {
+        height: 468px;
+    }
+
+    .sign__form {
+        margin: 0  0 15px;
+    }
+
+    .sign__button {
+        font-size: 12px
+    }
+
+    .sign__question{
+        font-size: 12px;
+    }
+}

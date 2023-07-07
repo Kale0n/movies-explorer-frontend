@@ -1,0 +1,61 @@
+.not-found {
+    max-width: 400px;
+    margin: 250px auto 60px;
+    font-family: "Inter", Helvetica, sans-serif;
+    color:black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+.not-found__heading {
+    margin: auto;
+    font-size: 140px;
+    font-weight: 400;
+}
+
+.not-found__subtitle {
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 0;
+}
+
+.not-found__button {
+    margin: 175px auto 0;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+}
+
+.not-found__button:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+
+@media screen and (max-width:800px) {
+    .not-found {
+        margin: 412px auto 222px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .not-found {
+        margin: 332px auto 30px;
+        row-gap: 13px;
+        width: 300px;
+    }
+
+    .not-found__heading {
+        font-size: 80px;
+    }
+
+    .not-found__subtitle {
+        font-size: 12px;
+    }
+
+    .not-found__button {
+        font-size: 12px;
+        margin-top: 271px;
+    }
+}
