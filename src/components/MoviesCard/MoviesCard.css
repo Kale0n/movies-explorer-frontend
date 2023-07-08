@@ -36,6 +36,11 @@
     cursor: pointer;
     margin-top: 10px;
     border: none;
+    opacity: 0;
+}
+
+.movie__container:hover .movie__delete {
+    opacity: 1;
 }
 
 .movie__like {

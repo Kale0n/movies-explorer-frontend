@@ -119,7 +119,7 @@
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .sign {
         width: 260px;
         margin: 56px auto 30px;

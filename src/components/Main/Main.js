@@ -7,19 +7,21 @@ import AboutMe from "./AboutMe/AboutMe"
 import Portfolio from "./Portfolio/Portfolio"
 import "./Main.css"
 
-function Main (props) { 
+function Main () { 
     return (
-        <main className="main">
+        <>
             {<Header 
                 isMain={true} 
-            /> }
-            {<Promo/>}
-            {<AboutProject />}
-            {<Techs />}
-            {<AboutMe />}
-            {<Portfolio />}
+            />}
+            <main className="main">
+                {<Promo/>}
+                {<AboutProject />}
+                {<Techs />}
+                {<AboutMe />}
+                {<Portfolio />}
+            </main>
             {<Footer />}
-        </main>
+        </>
     )
 }
 

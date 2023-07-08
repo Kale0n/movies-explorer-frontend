@@ -131,11 +131,10 @@
     .profile__fieldset {
         row-gap: 18px;
     }
-
 }
 
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:420px) {
     .profile__container {
         margin: 68px auto 40px;
         row-gap: 80px;

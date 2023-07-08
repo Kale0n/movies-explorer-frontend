@@ -3,9 +3,9 @@ import Sign from "../Sign/Sign"
 
 function Login () {
     return (
-        <section className="login">
+        <main className="login">
             <Sign greeting="Рады видеть!" buttonText="Войти" />
-        </section>
+        </main>
     )
 }
 

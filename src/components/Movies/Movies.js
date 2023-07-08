@@ -8,15 +8,16 @@ import MoviesArray from "../../utils/MoviesArray"
 
 function Movies () {
     return (
-        <section className="movies">
-            {<Header isMovies={true}
-            />}
-            {<SearchForm />}
-            <hr className="movies__divider"></hr>
-            {<MoviesCardList moviesArray={MoviesArray} isSafed={false}/>}
-            <button className="movies__button" type="submit">Ещё</button>
+        <>
+            {<Header isMovies={true}/>}
+            <main className="movies">
+                {<SearchForm />}
+                <hr className="movies__divider"></hr>
+                {<MoviesCardList moviesArray={MoviesArray} isSafed={false}/>}
+                <button className="movies__button" type="submit">Ещё</button>
+            </main>
             {<Footer/>}
-        </section>
+        </>
     )
 }
 

@@ -1,4 +1,8 @@
 .header {
+    max-width: 1140px;
+    font-family: "Inter", Helvetica, sans-serif;
+    color:black;
+    margin: 0 auto;
     padding: 18px 70px;
     display: flex;
     flex-direction: row;
@@ -8,7 +12,6 @@
 
 .header_main {
     background-color:  #F3C1F8;
-    padding: 18px 70px;
 }
 
 .header__button-container {

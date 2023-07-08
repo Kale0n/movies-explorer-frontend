@@ -44,7 +44,6 @@ function Sign (props) {
                 :
                 <p className="sign__question">Еще не зарегестрированы?<span className="sign__link" onClick={goToSignUp}>Регистрация</span></p>
             }
-
         </div>
     )
 }

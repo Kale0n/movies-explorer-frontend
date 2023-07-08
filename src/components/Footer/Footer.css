@@ -1,4 +1,8 @@
 .footer {
+    max-width: 1140px;
+    font-family: "Inter", Helvetica, sans-serif;
+    color:black;
+    margin: 0 auto;
     padding: 78px 70px 20px;
     display: flex;
     flex-direction: column;

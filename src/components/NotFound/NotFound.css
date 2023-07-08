@@ -39,7 +39,7 @@
     }
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:410px) {
     .not-found {
         margin: 332px auto 30px;
         row-gap: 13px;

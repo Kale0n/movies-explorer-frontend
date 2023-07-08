@@ -8,14 +8,16 @@ import SavedMoviesArray from "../../utils/SavedMoviesArray"
 
 function SavedMovies () {
     return (
-        <section className="savedMovies">
+        <>
             {<Header isSavedMovies={true}/>}
-            {<SearchForm />}
-            <hr className="savedMovies__divider"></hr>
-            {<MoviesCardList moviesArray={SavedMoviesArray} isSaved={true}/>}
-            {/* <button className="movies__button" type="submit">Ещё</button> */}
+            <main className="savedMovies">
+                {<SearchForm />}
+                <hr className="savedMovies__divider"></hr>
+                {<MoviesCardList moviesArray={SavedMoviesArray} isSaved={true}/>}
+                {/* <button className="movies__button" type="submit">Ещё</button> */}
+            </main>
             {<Footer/>}
-        </section>
+        </>
     )
 }
 

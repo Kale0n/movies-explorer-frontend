@@ -3,9 +3,9 @@ import Sign from "../Sign/Sign"
 
 function Register () {
     return (
-        <section className="register">
+        <main className="register">
             <Sign greeting="Добро пожаловать!" buttonText="Зарегестрироваться" isRegister={true} />
-        </section>
+        </main>
     )
 }
 
