@@ -1,0 +1,125 @@
+.aboutProject {
+    padding: 112px 70px 100px;
+}
+
+.aboutProject__container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 52px;
+    margin: 70px 0 110px;
+}
+
+.aboutProject__text-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25.5px;
+}
+
+.aboutProject__subtitle{
+    font-size: 20px;
+    letter-spacing: -0.8px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.aboutProject__paragraph {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.aboutProject__timeline {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 36px 44px;
+    justify-items: center;
+    align-items: center;
+}
+
+.aboutProject__cell {
+    background-color: #F2F2F2;
+    font-size: 14px;
+    justify-self: stretch;
+    align-self: stretch;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.aboutProject__cell_dark {
+    background-color: black;
+    color: #FFF;
+}
+
+.aboutProject__caption {
+    margin: 0;
+    color: #A0A0A0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 768px) {
+    .aboutProject {
+        padding: 92px 50px 77px;
+    }
+
+    .aboutProject__container {
+        column-gap: 37px;
+        margin: 69px 0 93px;
+    }
+
+    .aboutProject__text-container{
+        row-gap: 25px;
+    }
+
+    .aboutProject__paragraph {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .aboutProject__timeline {
+        grid-template-columns: 21% 78%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .aboutProject {
+        padding: 70px 18px 70px;
+    }
+
+    .aboutProject__container {
+        flex-direction: column;
+        row-gap: 57px;
+        margin: 62px 0 60px;
+    }
+
+    .aboutProject__text-container{
+        row-gap: 17px;
+    }
+
+    .aboutProject__subtitle{
+        font-size: 18px;
+        letter-spacing: -0.72px;
+    }
+
+    .aboutProject__paragraph {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+
+    .aboutProject__timeline {
+        grid-template-columns: 35% 65%;
+        grid-template-rows: 35px 40px;
+    }
+
+    .aboutProject__cell {
+        font-size: 11px;
+        padding: 11px;
+    }
+
+    .aboutProject__caption {
+        font-size: 11px;
+    }
+}

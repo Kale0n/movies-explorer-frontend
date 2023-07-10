@@ -1,0 +1,7 @@
+ .main {
+    max-width: 1280px;
+    margin: 0 auto;
+    font-family: "Inter", Helvetica, sans-serif;
+    color:black;
+    cursor: default;
+ }
