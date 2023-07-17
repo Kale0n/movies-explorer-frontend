@@ -9,7 +9,7 @@ function Sign (props) {
     const navigate = useNavigate();
     const [isValid , setIsValid] = useState(false)
     const [errors, setErrors] = useState({});
-    const [isSignedUp , setIsSignedUp] = useState(false)
+    const [isErrorFromServer , setErrorFromServer] = useState(false)
 
 
     const [formValue, setFormValue] = useState({
@@ -19,7 +19,7 @@ function Sign (props) {
       })
 
     const handleChange = (e) => {
-        setIsSignedUp(false)
+        setErrorFromServer(false)
         const {name, value} = e.target;
 
         setFormValue({
@@ -55,8 +55,12 @@ function Sign (props) {
         .then(() =>
             navigate('/movies', {replace: true})
         )
-        .catch((err) => {
-            console.log(err)
+        .catch((response) => {
+            response.json().then((data) => {
+                setErrors({...errors, api: data.message});
+                setErrorFromServer(true)
+                setIsValid(false)
+            })
         })
     }
 
@@ -71,7 +75,8 @@ function Sign (props) {
         .catch((response) => {
             response.json().then((data) => {
                 setErrors({...errors, api: data.message});
-                setIsSignedUp(true)
+                setErrorFromServer(true)
+                setIsValid(false)
             })
         })
     }
@@ -131,10 +136,18 @@ function Sign (props) {
                     </input>
                     {(!isValid && errors.email) ? <span className="sign__error">{errors.email}</span> : <span></span>}
                     <label className="sign__label" htmlFor="password">Password</label>
-                    <input name="password" type="password" className="sign__input" id="password" value={formValue.password} placeholder="password" required></input>
+                    <input 
+                        name="password" 
+                        type="password" 
+                        className="sign__input" 
+                        id="password" 
+                        value={formValue.password} 
+                        placeholder="password" 
+                        required> 
+                    </input>
                     {(!isValid && errors.password) ? <span className="sign__error">{errors.password}</span> : <span></span> }
                 </fieldset>
-                {isSignedUp ? <span className="sign__error">{errors.api}</span> : <span></span>}
+                {isErrorFromServer ? <span className="sign__error">{errors.api}</span> : <span></span>}
                 <button disabled={!isValid && true} className={`sign__button ${!isValid && "sign__button_disabled"}`}onClick={props.isRegister ? handleSignUp : handleSignIn}>{props.buttonText}</button>
             </form>
             { props.isRegister ? 
