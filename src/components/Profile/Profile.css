@@ -46,13 +46,18 @@
 
 .profile__label {
     display: flex;
+    position: relative;
     width: 100%;
+    flex-direction: column;
     justify-content: space-between;
     font-size: 11px;
     font-weight: 500;
 }
 
 .profile__input {
+    width: calc(100% - 10%);
+    position: absolute;
+    right: 0;
     text-align: right;
     border: none;
     padding: 0;
@@ -65,6 +70,16 @@
 .profile__input::placeholder {
     color: #000;
     font-size: 11px;
+}
+
+.profile__error {
+    text-align: right;
+    color: #FF4062;
+    font-size: 10px;
+}
+
+.profile__error_server{
+    text-align: center;
 }
 
 .profile__button-container {

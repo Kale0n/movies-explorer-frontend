@@ -30,11 +30,10 @@ function Header (props) {
         navigate('/', { replace: true });
     }
 
-
     return(
         <header className={`header ${props.isMain ? 'header_main' : ''}`}>
             {<Logo onClick={goToHomePage}/>}
-            { props.isMain ? (
+            { (props.isLoggedIn === false) ? (
                 <div className="header__button-container">
                     <button className="header__button header__button_signup" onClick={goToSignUp}>Регистрация</button>
                     <button className="header__button header__button_signin" onClick={goToSignIn}>Войти</button>

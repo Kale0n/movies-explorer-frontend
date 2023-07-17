@@ -1,29 +1,38 @@
 import "./MoviesCard.css"
+import { saveMovie, deleteMovie, changeMovieLikeStatus } from "../../utils/MainApi"
+import { useState } from "react"
 
-function MoviesCard( {onCardDelete, onCardLike, isLiked, isSaved, card}) {
+const url = "https://api.nomoreparties.co/" // вынести эту прелестьв в константу
 
-    function handleDeleteClick() {
-        onCardDelete(card)
-    }
+function MoviesCard( {onDeleteMovie, isSaved, movie, isLiked, onLikeClick}) {
+
 
     function handleLikeClick() {
-        onCardLike(true)
+        onLikeClick(movie, isLiked)
+    }
+
+    function handleDeleteClick(){
+        onDeleteMovie(movie)
+        .catch(err => console.log(err))
+
     }
 
     return (
         <div className="movie">
-            <img className="movie__image" src={card.src} alt={card.name} />
+            <a href={movie.trailerLink} target="_blank" rel="noreferrer" ><img className="movie__image" src={isSaved? movie.image : `${url}${movie.image.url}`} alt={movie.nameRU}/>
+            </a>
             <div className="movie__container">
-                <h3 className="movie__title">{card.name}</h3>
+                <h3 className="movie__title">{movie.nameRU}</h3>
                 {isSaved ? 
-                    <button className="movie__delete" onClick={(handleDeleteClick)}></button>
+                    <button className="movie__delete" onClick={handleDeleteClick}></button>
                     : 
-                    <button className={`movie__like ${isLiked && "movie__like_active"}`} onClick={(handleLikeClick)}></button>
+                    <button className={`movie__like ${isLiked && "movie__like_active"}`} onClick={(e) => handleLikeClick(movie)}></button>
                 }
                
             </div>
-            <div className="movie__duration">{card.duration}</div>
+            <div className="movie__duration">{movie.duration} мин</div>
         </div>
+        // {`movie__like ${isLiked && "movie__like_active"}`}
     )
 }
 

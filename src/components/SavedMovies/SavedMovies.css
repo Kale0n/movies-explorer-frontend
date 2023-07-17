@@ -12,6 +12,14 @@
     margin: 67px 0 80px;
 }
 
+.savedMovie__error-text{
+    font-size: 30px;
+    font-weight: 400;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
 @media screen and (max-width:800px) {
     .savedMovies__divider {
         margin: 109px 0 80px;

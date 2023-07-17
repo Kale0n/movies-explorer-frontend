@@ -83,6 +83,15 @@
     opacity: .7;
 }
 
+.sign__button_disabled {
+    background-color: #A0A0A0;
+    cursor: default
+}
+
+.sign__button_disabled:hover {
+    opacity: 1;
+}
+
 .sign__question{
     color: #A0A0A0;
     margin: 0;
