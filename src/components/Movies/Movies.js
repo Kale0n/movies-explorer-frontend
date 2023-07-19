@@ -23,8 +23,8 @@ function Movies () {
     const [isLoaded, setIsLoaded] = useState()
     const [isOpen, setIsOpen] = useState((searchResultsAndParams.hasOwnProperty('isOpen')) ? searchResultsAndParams.isOpen : false)
     const [isSearchError, setSearchError] = useState(false);
-    const [isValid, setIsValid] = useState();
-    const [errors, setErrors] = useState({});
+    const [isValid, setIsValid] = useState(true);
+    const [error, setError] = useState(false);
     const [isAllMoviesLoaded, setAllMoviesLoaded] = useState(true)
     const [moreMoviesCounter, setMoreMoviesCounter] = useState(0) 
     const [initialCardsNumber, setInitialCardsNumber] = useState(12)
@@ -32,17 +32,22 @@ function Movies () {
 
     const widthsToCardsParams = [
         {
-            width: 1280,  // 768-1280 (и все больше): 12 карточек
+            width: 1280,  // 1280 и все больше: 12 карточек
             initialCardsNumber: 12,
             moreMoviesCardsNumber: 4,
         },
         {
-            width: 768,  // 480-768: 8 карточек
+            width: 1279,  // 1130-1279: 12 карточек
+            initialCardsNumber: 12,
+            moreMoviesCardsNumber: 3,
+        },
+        {
+            width: 1130,  // 765-1130: 8 карточек
             initialCardsNumber: 8,
             moreMoviesCardsNumber: 2,
         },
         {
-            width: 480,  // 320-480 (и все меньше): 5 карточек
+            width: 765,  // 320-765 (и все меньше): 5 карточек
             initialCardsNumber: 5,
             moreMoviesCardsNumber: 1,
         },
@@ -139,11 +144,17 @@ function Movies () {
     function handleMovieSearch(event) {
         event.preventDefault();
 
-        setIsLoaded(false)
-        setSearchError(false)
-        setPreloader(true)
+        if (searchValue == "") {
+            setError(true)
+            setIsValid(false);
+        } else {
+            setIsValid(true)
+            setIsLoaded(false)
+            setSearchError(false)
+            setPreloader(true)
 
-        setTimeout(fetchMovies, 300)
+            setTimeout(fetchMovies, 300)
+        }
     }
 
     const handleCheckboxChange = (e) => {
@@ -151,9 +162,8 @@ function Movies () {
     }
 
     const handleSearchChange = (event) => {
+            setError(false);
             setSearchValue(event.target.value)
-            setErrors({...errors, [event.target.name]: event.target.validationMessage });
-            setIsValid(event.target.closest("form").checkValidity());
     }
 
 
@@ -161,7 +171,7 @@ function Movies () {
         <>
             {<Header isMovies={true}/>}
             <main className="movies">
-                {<SearchForm  searchValue={searchValue} onSearchChange={handleSearchChange} isCheckboxChecked={isCheckboxChecked} onCheckboxChange={handleCheckboxChange} onClick={handleMovieSearch} valid={isValid} errors={errors.movie}/>}
+                {<SearchForm  searchValue={searchValue} onSearchChange={handleSearchChange} isCheckboxChecked={isCheckboxChecked} onCheckboxChange={handleCheckboxChange} onClick={handleMovieSearch} valid={isValid} error={error}/>}
                 <hr className="movies__divider"></hr>
                 {isPreloader && <Preloader />}
                 {isSearchError ? <h2 className="movie__error-text">

@@ -1,6 +1,4 @@
 import "./MoviesCard.css"
-import { saveMovie, deleteMovie, changeMovieLikeStatus } from "../../utils/MainApi"
-import { useState } from "react"
 
 const url = "https://api.nomoreparties.co/" // вынести эту прелестьв в константу
 
@@ -13,8 +11,19 @@ function MoviesCard( {onDeleteMovie, isSaved, movie, isLiked, onLikeClick}) {
 
     function handleDeleteClick(){
         onDeleteMovie(movie)
-        .catch(err => console.log(err))
+    }
 
+    function setMovieDuration (duration) {
+        const hour = Math.floor(duration / 60);
+        const minutes = duration % 60; 
+
+        if (hour === 0) {
+            return `${minutes} мин`
+        } else if (minutes === 0) {
+            return `${hour}ч`
+        } else {
+            return `${hour}ч ${minutes}м`
+        }
     }
 
     return (
@@ -30,7 +39,7 @@ function MoviesCard( {onDeleteMovie, isSaved, movie, isLiked, onLikeClick}) {
                 }
                
             </div>
-            <div className="movie__duration">{movie.duration} мин</div>
+            <div className="movie__duration">{setMovieDuration(movie.duration)}</div>
         </div>
         // {`movie__like ${isLiked && "movie__like_active"}`}
     )

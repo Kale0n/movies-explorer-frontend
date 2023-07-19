@@ -25,7 +25,7 @@ function App() {
         if (data){
           setUserInfo (data.name, data.email)
           setLoggedIn(true);
-        }
+          }
       })
       .catch((err) => console.log(err));
     } else {
@@ -56,15 +56,14 @@ function App() {
       return {name, email}
     }
 
-
   return (
     <>
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
           <Route path="/" element={< Main isLoggedIn={loggedIn}/>} /> 
-          <Route path="/signup" element={ <Register onRegisterUser={setUserInfo} onLoginUser={tokenCheck} user={currentUser}/>} />
-          <Route path="/signin" element={ <Login onLoginUser={tokenCheck}/>} />
-          <Route path="/profile" element ={ <ProtectedRouteElement element={Profile} logOut={logOut} updateUser={handleUpdateUser} isLoggedIn={loggedIn}/>} />
+          <Route path="/signup" element={ <Register onRegisterUser={setUserInfo} onLoginUser={tokenCheck} user={currentUser} isLoggedIn={loggedIn} />} />
+          <Route path="/signin" element={ <Login onLoginUser={tokenCheck} isLoggedIn={loggedIn} />} />
+          <Route path="/profile" element ={ <ProtectedRouteElement element={Profile} logOut={logOut} updateUser={handleUpdateUser} isLoggedIn={loggedIn} />} />
           <Route path="/movies" element={ <ProtectedRouteElement element={Movies} isLoggedIn={loggedIn} />} />
           <Route path="/saved-movies" element={ <ProtectedRouteElement element={SavedMovies} isLoggedIn={loggedIn}/>} />
           <Route path="*" element={ <NotFound />} />

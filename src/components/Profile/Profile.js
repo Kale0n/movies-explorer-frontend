@@ -13,11 +13,19 @@ function Profile (props) {
     const [errors, setErrors] = useState({})
     const [isSaveButtonVisible, setSaveButtonVisible] = useState(false)
     const [isInputActive, setInputActive] = useState(false)
+    const [isUpdatedSuccesfully, setUpdatedSuccesfully] = useState(false)
+    const [formValue, setFormValue] = useState({})
 
-    const [formValue, setFormValue] = useState({
-        name: user.name,
-        email: user.email,
-    })
+
+    useEffect(() => {
+        if(user) {
+                setFormValue({
+                name: user.name,
+                email: user.email,
+                })
+        }   
+    }, [user]
+    )
 
     useEffect(() => {
         setInputActive(false)
@@ -75,6 +83,7 @@ function Profile (props) {
         e.preventDefault();
 
         props.updateUser(formValue)
+        .then(() => setUpdatedSuccesfully(true))
         .catch((response) => {
             response.json().then((data) => {
                 setErrors({...errors, api: data.message});
@@ -82,6 +91,7 @@ function Profile (props) {
                 setIsValid(false)
             })
         })
+        .finally(() => setTimeout(() => setUpdatedSuccesfully(false), 1500))
     }
 
 
@@ -113,7 +123,13 @@ function Profile (props) {
                             </label>
                         </fieldset>
                         <div className="profile__button-container">
-                            {isServerError && <span className="profile__error profile__error_server">{errors.api}</span>}
+                            {isServerError ? 
+                                <span className="profile__error profile__error_server">{errors.api}</span> 
+                                : 
+                                isUpdatedSuccesfully ? 
+                                <span className="profile__updated-span">Данные профиля успешно обновлены!</span>
+                                :
+                                ""}
                             {isSaveButtonVisible ? <button className={`profile__save-button ${!isValid && "profile__save-button_inactive"}`} onClick={handleSaveButton} disabled={!isValid}>Сохранить</button>
                             :
                             <>

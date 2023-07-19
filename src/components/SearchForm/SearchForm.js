@@ -1,15 +1,14 @@
 import "./SearchForm.css" 
 
 function SearchForm (props) {
-
     return (
         <form className="form" noValidate>
             <fieldset className="form__input-container">
                 <label className="form__input-label" htmlFor="movie" ></label>
                 <input className="form__input" type="text" name="movie" id="movie" placeholder="Фильм" required value={props.searchValue} onChange={props.onSearchChange} ></input>
-                {(!props.isValid && props.errors) && <span className="form__error">{props.errors}</span>}
+                {(!props.isValid && props.error) && <span className="form__error">Нужно ввести ключевое слово</span>}
             </fieldset>
-            <button className={`form__button ${props.valid === false && "form__button_disabled"}`} type="submite" onClick={props.onClick} disabled={!props.valid}>Найти</button>
+            <button className={`form__button`} type="submite" onClick={props.onClick} >Найти</button>
             <hr className="form__divider"></hr>
             <fieldset className="form__checkbox-container">
                 <label className="form__checkbox-label" htmlFor="shortMovie">

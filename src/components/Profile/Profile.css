@@ -83,6 +83,7 @@
 }
 
 .profile__button-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     row-gap: 16px;
@@ -131,6 +132,16 @@
 
 .profile__button:hover {
     opacity: 0.7
+}
+
+.profile__updated-span{
+    text-align: center;
+    color: #2BE080;
+    font-size: 16px;
+    margin: 0;
+    position: absolute;
+    top: -80px;
+    left: 14%;
 }
 
 @media screen and (max-width:800px) {

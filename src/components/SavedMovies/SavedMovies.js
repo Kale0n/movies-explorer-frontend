@@ -21,7 +21,7 @@ function SavedMovies () {
     const [isLoaded, setIsLoaded] = useState()
     const [isSearchError, setSearchError] = useState(false);
     const [isValid, setIsValid] = useState(true);
-    const [errors, setErrors] = useState({});
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         getSavedMovies()
@@ -65,11 +65,16 @@ function SavedMovies () {
     const handleMovieSearch = (event) => {
         event.preventDefault();
 
-        setIsLoaded(false)
-        setSearchError(false)
-        setPreloader(true)
+        if (searchValue == "") {
+            setError(true)
+            setIsValid(false);
+        } else {
+            setIsLoaded(false)
+            setSearchError(false)
+            setPreloader(true)
 
-        setTimeout(filterMovies, 300)  
+            setTimeout(filterMovies, 300)  
+        }
     }
 
     const handleCheckboxChange = (e) => {
@@ -77,9 +82,8 @@ function SavedMovies () {
     }
 
     const handleSearchChange = (event) => {
+        setError(false)
         setSearchValue(event.target.value)
-        setErrors({...errors, [event.target.name]: event.target.validationMessage });
-        setIsValid(event.target.closest("form").checkValidity());
     }
 
     function handleDeleteMovie(movie) {
@@ -87,13 +91,15 @@ function SavedMovies () {
         .then(() => {setMoviesArray((moviesArray) => moviesArray.filter(
             (item)=> item._id !== movie._id
         ))})
+        .catch(err => console.log(err))
+
     }
 
     return (
         <>
             {<Header isSavedMovies={true}/>}
             <main className="savedMovies">
-                {<SearchForm onSearchChange={handleSearchChange} isCheckboxChecked={isCheckboxChecked} onCheckboxChange={handleCheckboxChange} onClick={handleMovieSearch} valid={isValid} errors={errors.movie}/>}
+                {<SearchForm onSearchChange={handleSearchChange} isCheckboxChecked={isCheckboxChecked} onCheckboxChange={handleCheckboxChange} onClick={handleMovieSearch} valid={isValid} error={error}/>}
                 <hr className="savedMovies__divider"></hr>
                 {isPreloader && <Preloader />}
                 {isSearchError ? <h2 className="savedMovie__error-text">

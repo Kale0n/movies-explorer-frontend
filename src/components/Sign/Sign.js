@@ -1,11 +1,10 @@
 import "./Sign.css"
 import Logo from "../Logo/Logo"
 import { useNavigate } from "react-router-dom"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {register, authorize} from "../../utils/MainApi"
 
 function Sign (props) {
-
     const navigate = useNavigate();
     const [isValid , setIsValid] = useState(false)
     const [errors, setErrors] = useState({});
@@ -16,7 +15,14 @@ function Sign (props) {
         name: '',
         email: '',
         password: ''
-      })
+    })
+
+    useEffect(() => {
+        if (props.isLoggedIn) {
+            navigate("/movies", {replace: true})
+        }
+    }, [props.isLoggedIn] )
+
 
     const handleChange = (e) => {
         setErrorFromServer(false)
@@ -48,15 +54,13 @@ function Sign (props) {
 
 
     function handleLoginAPI (email, password) {
-        return authorize(email, password).then((data) => {
+        return authorize(email, password)
+        .then((data) => {
           if (data.token) {
             props.loginUser(data.token)
           }})
-        .then(() =>
-            navigate('/movies', {replace: true})
-        )
         .catch((response) => {
-            response.json().then((data) => {
+                response.json().then((data) => {
                 setErrors({...errors, api: data.message});
                 setErrorFromServer(true)
                 setIsValid(false)

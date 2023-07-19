@@ -96,4 +96,8 @@
         object-fit: cover;
         border: none;
     }
+
+    .movie__delete {
+        opacity: 1;
+    }
 }

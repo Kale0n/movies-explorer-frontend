@@ -22,7 +22,7 @@ function MoviesCardList ( {moviesArray, onDeleteMovie, isSaved} ) {
 
     function getIslikedFromMovie(movie) {
         for (let i = 0; i < savedMoviesArray.length; i = i + 1 ) {
-            if (savedMoviesArray[i].nameRU === movie.nameRU) {
+            if (savedMoviesArray[i].movieId === movie.id) {
                 return true;
             } 
         }
@@ -50,9 +50,7 @@ function MoviesCardList ( {moviesArray, onDeleteMovie, isSaved} ) {
             })
             .catch((err) => {console.log(err)});
         }
-
       }
-
 
     return (
         <section className="moviesCardList">
