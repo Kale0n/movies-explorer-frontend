@@ -52,12 +52,13 @@ function MoviesCardList ( {moviesArray, onDeleteMovie, isSaved} ) {
         }
       }
 
+
     return (
         <section className="moviesCardList">
             { moviesArray.length === 0 ? 
             <h2 className="moviesCardList__empty">Ничего не найдено!</h2>  
             : 
-            moviesArray.map((movie) => <MoviesCard key={movie.nameRU} movie={movie} isLiked={getIslikedFromMovie(movie)} onLikeClick={handleLikeClick} isSaved={isSaved} onDeleteMovie={onDeleteMovie}/> 
+            moviesArray.map((movie) =>  <MoviesCard key={isSaved ? movie.movieId : movie.id} movie={movie} isLiked={getIslikedFromMovie(movie)} onLikeClick={handleLikeClick} isSaved={isSaved} onDeleteMovie={onDeleteMovie}/> 
             )}
         </section>
     )

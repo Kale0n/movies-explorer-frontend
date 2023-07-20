@@ -83,6 +83,12 @@
     }
 }
 
+@media screen and (max-width: 766px) {
+    .movie__delete {
+        opacity: 1;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .movie {
         display: grid;
@@ -95,9 +101,5 @@
         height: 168px;
         object-fit: cover;
         border: none;
-    }
-
-    .movie__delete {
-        opacity: 1;
     }
 }

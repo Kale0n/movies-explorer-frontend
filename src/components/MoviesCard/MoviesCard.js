@@ -4,7 +4,6 @@ const url = "https://api.nomoreparties.co/" // вынести эту преле�
 
 function MoviesCard( {onDeleteMovie, isSaved, movie, isLiked, onLikeClick}) {
 
-
     function handleLikeClick() {
         onLikeClick(movie, isLiked)
     }

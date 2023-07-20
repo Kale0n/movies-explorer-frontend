@@ -49,7 +49,7 @@ function Movies () {
         {
             width: 765,  // 320-765 (и все меньше): 5 карточек
             initialCardsNumber: 5,
-            moreMoviesCardsNumber: 1,
+            moreMoviesCardsNumber: 2,
         },
     ]
 
