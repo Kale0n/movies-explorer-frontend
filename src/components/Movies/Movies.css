@@ -29,6 +29,14 @@
     opacity: .7;
 }
 
+.movie__error-text {
+    font-size: 30px;
+    font-weight: 400;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
 @media screen and (max-width:800px) {
     .movies__divider {
         margin: 109px 0 80px;
@@ -47,5 +55,12 @@
     .movies__button {
         width: 240px;
         margin-bottom: 85px;
+    }
+
+    .movie__error-text {
+        font-size: 40px;
+        font-weight: 400;
+        width: 100%;
+        margin-left: 10px;
     }
 }

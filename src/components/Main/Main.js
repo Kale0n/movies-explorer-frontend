@@ -7,11 +7,12 @@ import AboutMe from "./AboutMe/AboutMe"
 import Portfolio from "./Portfolio/Portfolio"
 import "./Main.css"
 
-function Main () { 
+function Main (props) { 
     return (
         <>
             {<Header 
-                isMain={true} 
+                isMain={true}
+                isLoggedIn ={props.isLoggedIn} 
             />}
             <main className="main">
                 {<Promo/>}

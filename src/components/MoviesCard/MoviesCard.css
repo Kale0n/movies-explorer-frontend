@@ -68,7 +68,7 @@
     border-top: 1px solid #E8E8E8;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1279px) {
     .movie {
         display: grid;
         grid-template-columns: 338px;
@@ -80,6 +80,12 @@
         height: 190px;
         object-fit: cover;
         border: none;
+    }
+}
+
+@media screen and (max-width: 766px) {
+    .movie__delete {
+        opacity: 1;
     }
 }
 
