@@ -1,5 +1,4 @@
 # Movies-explorer-frontend 
-=======
 
 В данном проекте реализован фронтенд проекта Movies
 
